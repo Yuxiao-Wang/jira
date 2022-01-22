@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import React from "react";
 
 export const SearchPanel = ({users, param, setParam}) => {
