@@ -17,7 +17,8 @@ interface ListProps {
 }
 
 export const List = ({list, users}: ListProps) => {
-  return<Table pagination={false}
+  return<Table
+      rowKey={"id"} pagination={false}
                columns={[
                  {
                      title: '名称',
