@@ -2,7 +2,7 @@ import {FormEvent} from "react";
 import {useAuth} from "../context/auth-context";
 import {Button, Form, Input} from "antd";
 import {LongButton} from "./index";
-import {useAsync} from "../screens/utils/use-async";
+import {useAsync} from "../utils/use-async";
 
 const apiUrl = process.env.REACT_APP_API_URL
 export const RegisterScreen = ({onError}: {onError:(error: Error) => void}) => {

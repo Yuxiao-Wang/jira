@@ -1,8 +1,8 @@
 import {User} from "./search-panel";
-import {useHttp} from "../utils/http";
-import {useAsync} from "../utils/use-async";
+import {useHttp} from "../../utils/http";
+import {useAsync} from "../../utils/use-async";
 import {useEffect} from "react";
-import {cleanObject} from "../utils";
+import {cleanObject} from "../../utils";
 
 export const useUsers = (param?: Partial<User>) => {
     const client = useHttp()

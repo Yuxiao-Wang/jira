@@ -1,8 +1,8 @@
-import {useAsync} from "../utils/use-async";
+import {useAsync} from "../../utils/use-async";
 import {useEffect} from "react";
-import {cleanObject} from "../utils";
+import {cleanObject} from "../../utils";
 import {Project} from '../project-list/list'
-import {useHttp} from "../utils/http";
+import {useHttp} from "../../utils/http";
 
 export const useProjects = (param?: Partial<Project>) => {
     const client = useHttp()
