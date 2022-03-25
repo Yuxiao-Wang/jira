@@ -8,13 +8,12 @@ import {Typography} from "antd";
 import {useProjects} from "./project";
 import {useUsers} from "./user";
 import {useUrlQueryParam} from "../../utils/url";
+import {useProjectsSearchParam} from "./util";
 
 export const ProjectListScreen = () => {
   useDocumentTitle("项目列表", false);
-  const [param, setParam] = useUrlQueryParam(['name', 'personId'])
-  console.log(param)
-  const debouncedParam = useDebounce(param,  200)
-  const {isLoading, error, data: list} = useProjects(debouncedParam)
+  const [param, setParam] = useProjectsSearchParam()
+  const {isLoading, error, data: list} = useProjects(useDebounce(param,  200))
   const {data: users} = useUsers()
 
   return  <Container>
@@ -26,7 +25,7 @@ export const ProjectListScreen = () => {
       <option value={undefined}>默认选项</option>
       <option value={1}>第一个选项</option>
     </select>
-    <SearchPanel users={users || []}  param={ param} setParam={setParam}/>
+    <SearchPanel users={users || []}  param={ param } setParam={setParam}/>
     {error? <Typography.Text type={'danger'}>{error.message}</Typography.Text> : null}
     <List loading={isLoading} users={users || []} dataSource={list || []}/>
   </Container>
