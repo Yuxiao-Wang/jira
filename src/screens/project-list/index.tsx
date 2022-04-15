@@ -7,25 +7,27 @@ import styled from "@emotion/styled";
 import {Button, Typography} from "antd";
 import {useProjects} from "./project";
 import {useUsers} from "./user";
-import {useUrlQueryParam} from "../../utils/url";
-import {useProjectsSearchParam} from "./util";
-import {Row} from "../../components/lib";
+import {useProjectModal, useProjectsSearchParam} from "./util";
+import {ButtonNoPadding, Row} from "../../components/lib";
 
-export const ProjectListScreen = (props: {projectButton: JSX.Element}) => {
+export const ProjectListScreen = () => {
   useDocumentTitle("项目列表", false);
   const [param, setParam] = useProjectsSearchParam()
   const {isLoading, error, data: list, retry} = useProjects(useDebounce(param,  200))
   const {data: users} = useUsers()
+  const {open} = useProjectModal()
 
   return  <Container>
     <Row between={true}>
       <h1>项目列表</h1>
-      {props.projectButton}
+      <ButtonNoPadding
+        onClick={open}
+        type={"link"}
+      >创建项目</ButtonNoPadding>
     </Row>
     <SearchPanel users={users || []}  param={ param } setParam={setParam}/>
     {error? <Typography.Text type={'danger'}>{error.message}</Typography.Text> : null}
     <List
-        projectButton={props.projectButton}
         refresh={retry}
         loading={isLoading}
         users={users || []}
