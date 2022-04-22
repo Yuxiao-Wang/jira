@@ -36,7 +36,7 @@ export const useEditConfig = (queryKey: QueryKey) =>
     queryKey,
     (target, old) =>
       old?.map((item) =>
-        item.id == target.id ? { ...item, ...target } : item
+        item.id === target.id ? { ...item, ...target } : item
       ) || []
   );
 
