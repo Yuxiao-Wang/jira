@@ -3,7 +3,7 @@ import { SearchPanel } from "./search-panel";
 import React from "react";
 import { useDebounce, useDocumentTitle } from "../../utils";
 import styled from "@emotion/styled";
-import { useProjects } from "./project";
+import { useProjects } from "../../utils/project";
 import { useUsers } from "./user";
 import { useProjectModal, useProjectsSearchParam } from "./util";
 import { ButtonNoPadding, ErrorBox, Row } from "../../components/lib";

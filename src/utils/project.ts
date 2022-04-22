@@ -1,15 +1,15 @@
-import { useAsync } from "../../utils/use-async";
+import { useAsync } from "./use-async";
 import { useCallback, useEffect } from "react";
-import { cleanObject } from "../../utils";
-import { useHttp } from "../../utils/http";
+import { cleanObject } from "./index";
+import { useHttp } from "./http";
 import { QueryKey, useMutation, useQuery, useQueryClient } from "react-query";
-import { useProjectsSearchParam } from "./util";
+import { useProjectsSearchParam } from "../screens/project-list/util";
 import {
   useAddConfig,
   useDeleteConfig,
   useEditConfig,
-} from "../../utils/use-optimistic-option";
-import { Project } from "../../types/project";
+} from "./use-optimistic-option";
+import { Project } from "../types/project";
 
 export const useProjects = (param?: Partial<Project>) => {
   const client = useHttp();
