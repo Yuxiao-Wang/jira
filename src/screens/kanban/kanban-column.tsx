@@ -20,19 +20,17 @@ export const KanbanColumn = ({ kanban }: { kanban: Kanban }) => {
   const { data: allTasks } = useTasks(useTasksSearchParams());
   const tasks = allTasks?.filter((task) => task.kanbanId === kanban.id);
   return (
-    <div>
-      <Container>
-        <h2>{kanban.name}</h2>
-        <TasksContainer>
-          {tasks?.map((task) => (
-            <Card style={{ marginBottom: "0.5rem" }} key={task.id}>
-              <div>{task.name}</div>
-              <TaskTypeIcon id={task.typeId} />
-            </Card>
-          ))}
-        </TasksContainer>
-      </Container>
-    </div>
+    <Container>
+      <h2>{kanban.name}</h2>
+      <TasksContainer>
+        {tasks?.map((task) => (
+          <Card style={{ marginBottom: "0.5rem" }} key={task.id}>
+            <div>{task.name}</div>
+            <TaskTypeIcon id={task.typeId} />
+          </Card>
+        ))}
+      </TasksContainer>
+    </Container>
   );
 };
 
